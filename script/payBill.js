@@ -21,34 +21,49 @@ document.getElementById("pay-btn").addEventListener("click", function () {
 
   console.log(billerAccount);
 
-  const ammount = getInputFromId("pay-amount")
-  if(ammount < 1){
-    alert("Invalid ammount")
-    return
-
-  }
-  const pin = getInputFromId("pay-pin")
-   if (pin.length !== 4) {
-  alert("invalid pin number");
+  const ammount = getInputFromId("pay-amount");
+  if (ammount < 1) {
+    alert("Invalid ammount");
     return;
   }
-   const balance = getBalanced()
-   console.log(balance);
+  const pin = getInputFromId("pay-pin");
+  if (pin.length !== 4) {
+    alert("invalid pin number");
+    return;
+  }
+  const balance = getBalanced();
+  console.log(balance);
 
+  if (method && billerAccount == "01234567890" && ammount && pin == "1234") {
+    const newBalance = balance - Number(ammount);
+    updateBalance(newBalance);
 
+    // transfer history
+    const transaction = document.getElementById("transaction-container");
+    const div = document.createElement("div");
+    div.className =
+      "flex justify-between items-center rounded-md shadow-md bg-base-100 py-4 px-4 mb-4";
 
- if( method && billerAccount == "01234567890" && ammount && pin =="1234" ){
-    const newBalance = balance - Number(ammount)
-    updateBalance(newBalance)
-    alert("Bill payed successfully")
-    
+    div.innerHTML = `
+    <div class="left flex gap-4 items-center">
+      <div class="border-4 border-primary bg-base-200 p-2 rounded-full">
+        <img src="../assets/opt-1.png" alt="" />
+      </div>
+      <div class="flex flex-col">
+        <h1> Bill payed ${ammount} by ${method} </h1>
+    <p>${new Date().toLocaleString()}</p>
+      </div>
+    </div>
+    <div class="right">
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+    </div>
+`;
 
- }else{
-    alert("Something Wrong ! please give valid input")
-    return
-}
+    transaction.appendChild(div);
 
-   
-
-
+    alert("Bill payed successfully");
+  } else {
+    alert("Something Wrong ! please give valid input");
+    return;
+  }
 });
