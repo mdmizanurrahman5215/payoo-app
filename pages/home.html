@@ -66,34 +66,46 @@
           is low and
         </p>
         <div class="buttons grid grid-cols-2 md:grid-cols-3 gap-4">
-          <button id="add-money" onclick="showOnly('add-money-container')" class="btn btn-soft flex-col py-4 h-full">
+          <button
+            id="add-money"
+            onclick="showOnly('add-money-container')"
+            class="btn btn-soft flex-col py-4 h-full"
+          >
             <img src="../assets/opt-1.png" alt="" />
             <p class="text-xl">Add money</p>
           </button>
-          <button id="withdraw" onclick="showOnly('withdraw-container')" class="btn btn-soft flex-col py-4 h-full">
+          <button
+            id="withdraw"
+            onclick="showOnly('withdraw-container')"
+            class="btn btn-soft flex-col py-4 h-full"
+          >
             <img src="../assets/opt-2.png" alt="" />
             <p class="text-xl">Cashout</p>
           </button>
-          <button class="btn btn-soft flex-col py-4 h-full">
+          <button  onclick="showOnly('transfer-container')"
+           class="btn btn-soft flex-col py-4 h-full">
             <img src="../assets/opt-3.png" alt="" />
             <p class="text-xl">Transfer money</p>
           </button>
-          <button class="btn btn-soft flex-col py-4 h-full">
+          <button  onclick="showOnly('bonus-container')"
+           class="btn btn-soft flex-col py-4 h-full">
             <img src="../assets/opt-4.png" alt="" />
             <p class="text-xl">Get Bonus</p>
           </button>
-          <button class="btn btn-soft flex-col py-4 h-full">
+          <button onclick="showOnly('pay-container')"
+          class="btn btn-soft flex-col py-4 h-full">
             <img src="../assets/opt-5.png" alt="" />
             <p class="text-xl">Pay bill</p>
           </button>
-          <button class="btn btn-soft flex-col py-4 h-full">
+          <button  onclick="showOnly('transaction-container')"
+           class="btn btn-soft flex-col py-4 h-full">
             <img src="../assets/opt-6.png" alt="" />
             <p class="text-xl">Transactions</p>
           </button>
         </div>
 
-         <!-- Add money  -->
-        <section id="add-money-container" class="form py-8 ">
+        <!-- Add money  -->
+        <section id="add-money-container" class="form py-8 hidden">
           <h1 class="mb-4 font-bold text-neutral">ADD MONEY</h1>
           <div class="card bg-base-100 w-full shadow-2xl mx-auto">
             <div class="card-body">
@@ -151,17 +163,12 @@
         </section>
         <!-- withdraw section  -->
 
-         <section id="withdraw-container" class="form py-8 ">
+        <section id="withdraw-container" class="form py-8 hidden">
           <h1 class="mb-4 font-bold text-neutral">Cash Out</h1>
           <div class="card bg-base-100 w-full shadow-2xl mx-auto">
             <div class="card-body">
               <fieldset class="fieldset">
-               
-            
-              
-                <label class="label font-bold text-neutral"
-                  >Agent Number</label
-                >
+                <label class="label font-bold text-neutral">Agent Number</label>
                 <input
                   id="agent-number"
                   type="number"
@@ -170,9 +177,7 @@
                   placeholder="Enter 11 digit Number"
                   value="01234567890"
                 />
-                <label class="label font-bold text-neutral"
-                  >Amount</label
-                >
+                <label class="label font-bold text-neutral">Amount</label>
                 <input
                   id="withdraw-amount"
                   type="number"
@@ -199,11 +204,148 @@
           </div>
         </section>
 
+        <!-- transfer money  -->
+        <section id="transfer-container" class="form py-8 hidden">
+          <h1 class="mb-4 font-bold text-neutral">Transfer Money</h1>
+          <div class="card bg-base-100 w-full shadow-2xl mx-auto">
+            <div class="card-body">
+              <fieldset class="fieldset">
+                <label class="label font-bold text-neutral"
+                  >User Account Number</label
+                >
+                <input
+                  id="user-account-number"
+                  type="number"
+                  maxlength="11"
+                  class="input rounded-full bg-base-200 outline-none mb-2 w-full"
+                  placeholder="Enter 11 digit Number"
+                  value="01234567890"
+                />
+                <label class="label font-bold text-neutral">Amount</label>
+                <input
+                  id="transfer-amount"
+                  type="number"
+                  class="input rounded-full bg-base-200 outline-none w-full"
+                  placeholder="Enter amount to transfer"
+                />
+                <label class="label font-bold text-neutral">Pin Number</label>
+                <input
+                  id="transfer-pin"
+                  type="number"
+                  maxlength="4"
+                  class="input rounded-full bg-base-200 outline-none w-full"
+                  placeholder="Enter 4 disit pin number"
+                />
+
+                <button
+                  id="transfer-btn"
+                  class="btn btn-primary mt-4 rounded-full"
+                >
+                  Send now
+                </button>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+        <!-- Bonus section  -->
+        <section id="bonus-container" class="form py-8 hidden">
+          <h1 class="mb-4 font-bold text-neutral">Get Bonus</h1>
+          <div class="card bg-base-100 w-full shadow-2xl mx-auto">
+            <div class="card-body">
+              <fieldset class="fieldset">
+                <label class="label font-bold text-neutral"
+                  >Enter Bonus Coupon</label
+                >
+                <input
+                  id="coupon-input"
+                  type="text"
+                  class="input rounded-full bg-base-200 outline-none w-full"
+                  placeholder="Enter Your Coupon"
+                />
+
+                <button
+                  id="coupon-btn"
+                  class="btn btn-primary mt-4 rounded-full"
+                >
+                  Get Bonus
+                </button>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+        <!-- Bill pay  -->
+          <section id="pay-container" class="form py-8 hidden">
+          <h1 class="mb-4 font-bold text-neutral">Pay Bill </h1>
+          <div class="card bg-base-100 w-full shadow-2xl mx-auto">
+            <div class="card-body">
+              <fieldset class="fieldset">
+                <label class="label font-bold text-neutral"
+                  >Select To Pay</label
+                >
+                <select
+                  id="select-method"
+                  class="input rounded-full bg-base-200 outline-none mb-2 w-full"
+                >
+                  <option value="" disabled selected>Select Method</option>
+                  <option value="bkash">Bkash</option>
+                  <option value="nagad">Nagad</option>
+                  <option value="bank"> BANK</option>
+                </select>
+                <label class="label font-bold text-neutral"
+                  >Biller Account Number</label
+                >
+                <input
+                  id="biller-account-number"
+                  type="number"
+                  maxlength="11"
+                  class="input rounded-full bg-base-200 outline-none mb-2 w-full"
+                  placeholder="Enter account number"
+                  value="01234567890"
+                />
+                <label class="label font-bold text-neutral"
+                  >Amount to Pay</label
+                >
+                <input
+                  id="pay-amount"
+                  type="number"
+                  class="input rounded-full bg-base-200 outline-none w-full"
+                  placeholder="Add Amount to pay"
+                />
+                <label class="label font-bold text-neutral">Pin Number</label>
+                <input
+                  id="pay-pin"
+                  type="number"
+                  maxlength="4"
+                  class="input rounded-full bg-base-200 outline-none w-full"
+                  placeholder="Enter 4 digit pin number"
+                />
+
+                <button
+                  id="pay-btn"
+                  class="btn btn-primary mt-4 rounded-full"
+                >
+                 Pay Now
+                </button>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+        <!-- transaction history  -->
+        <section id="transaction-container" class="hidden  overflow-auto max-h-96">
+          <h2 class="font-bold text-neutral text-3xl mb-4 sticky top-0 bg-white z-10 py-4 text-center">
+            Transaction history
+          </h2>
+        
+        </section>
       </section>
     </header>
 
     <script src="../script/common.js"></script>
     <script src="../script/cashIn.js"></script>
     <script src="../script/withdraw.js"></script>
+    <script src="../script/transfer.js"></script>
+    <script src="../script/bonus.js"></script>
+    <script src="../script/transactionHistory.js"></script>
+    <script src="../script/payBill.js"></script>
   </body>
 </html>

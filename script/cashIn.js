@@ -32,10 +32,13 @@ document.getElementById("addmoney-btn").addEventListener("click", function () {
    const balance = getBalanced()
    console.log(balance);
 
+
+
  if( bank && bankAccount == "01234567890" && ammount && pin =="1234" ){
     const newBalance = balance + Number(ammount)
     updateBalance(newBalance)
     alert("balanced added successfully")
+    
 
  }else{
     alert("Something Wrong")
