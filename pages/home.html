@@ -70,7 +70,7 @@
             <img src="../assets/opt-1.png" alt="" />
             <p class="text-xl">Add money</p>
           </button>
-          <button class="btn btn-soft flex-col py-4 h-full">
+          <button id="withdraw" onclick="showOnly('withdraw-container')" class="btn btn-soft flex-col py-4 h-full">
             <img src="../assets/opt-2.png" alt="" />
             <p class="text-xl">Cashout</p>
           </button>
@@ -93,7 +93,7 @@
         </div>
 
          <!-- Add money  -->
-        <section id="add-money-container" class="form py-8 hidden">
+        <section id="add-money-container" class="form py-8 ">
           <h1 class="mb-4 font-bold text-neutral">ADD MONEY</h1>
           <div class="card bg-base-100 w-full shadow-2xl mx-auto">
             <div class="card-body">
@@ -150,11 +150,60 @@
           </div>
         </section>
         <!-- withdraw section  -->
-         
+
+         <section id="withdraw-container" class="form py-8 ">
+          <h1 class="mb-4 font-bold text-neutral">Cash Out</h1>
+          <div class="card bg-base-100 w-full shadow-2xl mx-auto">
+            <div class="card-body">
+              <fieldset class="fieldset">
+               
+            
+              
+                <label class="label font-bold text-neutral"
+                  >Agent Number</label
+                >
+                <input
+                  id="agent-number"
+                  type="number"
+                  maxlength="11"
+                  class="input rounded-full bg-base-200 outline-none mb-2 w-full"
+                  placeholder="Enter 11 digit Number"
+                  value="01234567890"
+                />
+                <label class="label font-bold text-neutral"
+                  >Amount</label
+                >
+                <input
+                  id="withdraw-amount"
+                  type="number"
+                  class="input rounded-full bg-base-200 outline-none w-full"
+                  placeholder="Enter amount to withdraw"
+                />
+                <label class="label font-bold text-neutral">Pin Number</label>
+                <input
+                  id="withdraw-pin"
+                  type="number"
+                  maxlength="4"
+                  class="input rounded-full bg-base-200 outline-none w-full"
+                  placeholder="Enter 4 disit pin number"
+                />
+
+                <button
+                  id="withdraw-btn"
+                  class="btn btn-primary mt-4 rounded-full"
+                >
+                  Withdraw Money
+                </button>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+
       </section>
     </header>
 
     <script src="../script/common.js"></script>
     <script src="../script/cashIn.js"></script>
+    <script src="../script/withdraw.js"></script>
   </body>
 </html>

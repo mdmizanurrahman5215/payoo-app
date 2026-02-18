@@ -20,7 +20,12 @@ const updateBalance = (newBalance)=>{
  balanceElem.innerText = newBalance;
 }
 const showOnly =(id)=>{
-  const getElem = document.getElementById(id);
+    const addmoney = document.getElementById("add-money-container")
+    addmoney.classList.add("hidden")
+    const withdraw = document.getElementById("withdraw-container")
+    withdraw.classList.add("hidden")
+    
+  const getElem = document.getElementById(id); 
   console.log(getElem);
   
   getElem.classList.remove("hidden")
